@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface UserRepositoryInterface
+interface CarRepositoryInterface
 {
     public function getAll();
     public function getById($id);
