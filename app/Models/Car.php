@@ -20,4 +20,9 @@ class Car extends Model
         'color' => '#000000',
         'brand' => 'test-brand'
     ];
+
+    protected $fillable = [
+        'color',
+        'brand'
+    ];
 }

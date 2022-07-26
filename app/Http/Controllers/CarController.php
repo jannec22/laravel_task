@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CarRequest;
 use App\Http\Resources\Car as ResourcesCar;
 use App\Http\Resources\CarCollection;
 use App\Models\Car;
@@ -32,9 +33,13 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CarRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $car = $this->carRepository->create($validated);
+
+        return new ResourcesCar($car);
     }
 
     /**

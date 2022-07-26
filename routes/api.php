@@ -18,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/car/{car}', [\App\Http\Controllers\CarController::class, "show"]);
 
+Route::post("/car/create", [\App\Http\Controllers\CarController::class, "create"]);
+
 Route::get("/cars", [\App\Http\Controllers\CarController::class, "store"]);
