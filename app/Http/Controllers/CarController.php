@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Car as ResourcesCar;
+use App\Http\Resources\CarCollection;
 use App\Models\Car;
+use App\Repositories\CarRepository;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
+    public function __construct(
+        private CarRepository $carRepository
+    )
+    {
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +45,7 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return new CarCollection($this->carRepository->getAll());
     }
 
     /**
@@ -46,7 +56,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return new ResourcesCar($car);
     }
 
     /**

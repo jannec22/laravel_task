@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Resources\Car as ResourcesCar;
+use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/car', function (Request $request) {
-//     return $request->car();
-// });
+Route::get('/car/{car}', [\App\Http\Controllers\CarController::class, "show"]);
 
-// Route::get("/cars", [\App\Http\Controllers\CarController::class, "index"]);
+Route::get("/cars", [\App\Http\Controllers\CarController::class, "store"]);
